@@ -32,7 +32,6 @@ thimble = [1]
 top_hat = [1]
 wheel_barrow = [1]
 
-if battleship[0] == Monopoly_Board["Go"]:
-    print("Fudge yes")
-
-print(Monopoly_Board["Go"])
+input("CLICK HERE THEN PRESS ENTER")
+print("How many people will be playing")
+playing = int(input(">>>"))
