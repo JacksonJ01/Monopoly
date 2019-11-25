@@ -1,7 +1,10 @@
 # Jackson J.
 # 11/24/19
 # My mom told me to make monopoly, so i will try
-"""I have to try to make a turn based algorithm and characters have rotate"""
+"""I have to try to make a turn based algorithm and characters have the turns rotate"""
+from random import *
+rn = randint(2, 12)
+
 
 Monopoly_Board = {"Go": 1, "Mediterranean Ave": 2, "Community Chest 1": 3, "Baltic Ave": 4, "Income Tax": 5, "Reading Railroad": 6, "Oriental Ave": 7, "Chance 1": 8, "Vermont Ave": 9, "Connecticut Ave": 10,
                   "Just Visiting": 11, "St. Charles place": 12, "Electric Company": 13, "States Ave": 14, "Virginia Ave": 15, "Pennsylvania Railroad": 16, "St. James Place": 17, "Community 2": 18, "Tennessee Ave": 19, "New York Ave": 20,
@@ -21,16 +24,19 @@ Community_Chest = {1: "Advance To Go", 2: "BANK Error In Your Favor \nCollect $2
                    13: "Pay School Fees Of $150", 14: "Receive $25 Consultancy Fee", 15: "You Are Assessed For Street Repairs \n$40 per house \n$115 per hotel",
                    16: "You Have Won The Second Place Prize In A Beauty Contest \nCollect $10", 17: "You Inherit $100"}
 
-battleship = [1]
-boot = [1]
-cannon = [1]
-horse_rider = [1]
-iron = [1]
-racecar = [1]
-dog = [1]
-thimble = [1]
-top_hat = [1]
-wheel_barrow = [1]
+# The value at 0 is the position
+# The value at 1 is the name of the character piece for the user
+# There will be other values at the other positions in the list to hold Money and get out of Jail Cards#
+battleship = [1, "Battleship"]
+boot = [1, "Boot"]
+cannon = [1, "Cannon"]
+horse_rider = [1, "Horse Rider"]
+iron = [1, "Iron"]
+racecar = [1, "Racecar"]
+dog = [1, "Dog"]
+thimble = [1, "Thimble"]
+top_hat = [1, "Top Hat"]
+wheel_barrow = [1, "Wheel Barrow"]
 
 input("CLICK HERE THEN PRESS ENTER")
 print("How many people will be playing")
