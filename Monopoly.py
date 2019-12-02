@@ -18,4 +18,14 @@ rule = input(">>>").title()
 if rule == "Yes" or rule == "Y":
     rules()
 elif rule == "No" or rule == "N":
-    print("Okay, that speeds things up a bit")
+    print("\nOkay, that speeds things up a bit")
+
+b = 1
+for character in characters:
+    rn = randint(2, 12)
+    print(f"Player {b}")
+    input('PRESS ENTER')
+    print("You rolled", rn)
+    print("That's", rn, "for", characters[1])
+    print(characters.append(rn)[1])
+    b += 1

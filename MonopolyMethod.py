@@ -1,10 +1,11 @@
+from classSquare import *
 from random import *
 rn = randint(2, 12)
 
-Monopoly_Board = {"Go": 1, "Mediterranean Ave": 2, "Community Chest 1": 3, "Baltic Ave": 4, "Income Tax": 5, "Reading Railroad": 6, "Oriental Ave": 7, "Chance 1": 8, "Vermont Ave": 9, "Connecticut Ave": 10,
-                  "Just Visiting": 11, "St. Charles place": 12, "Electric Company": 13, "States Ave": 14, "Virginia Ave": 15, "Pennsylvania Railroad": 16, "St. James Place": 17, "Community 2": 18, "Tennessee Ave": 19, "New York Ave": 20,
-                  "Free Parking": 21, "Kentucky Ave": 22, "Chance 2": 23, "Indiana Ave": 24, "Illinois Ave": 25, "BO Railroad": 26, "Atlantic Ave": 27, "Ventnor Ave": 28, "Water Works": 29, "Marvin Gardens": 30,
-                  "Jail": 31, "Pacific Ave": 32, "North Carolina Ave": 33, "Community Chest 3": 34, "Pennsylvania Ave": 35, "Short Line": 36, "Chance 3": 37, "Park Place": 38, "Luxury Tax": 39, "Boardwalk": 40,
+Monopoly_Board = {"Go": 1, Mediterranean_Ave.name: 2, "Community Chest 1": 3, Baltic_Ave.name: 4, "Income Tax": 5, "Reading Railroad": 6, Oriental_Ave.name: 7, "Chance 1": 8, Vermont_Ave.name: 9, Connecticut_Ave.name: 10,
+                  "Just Visiting": 11, St_Charles_Place.name: 12, "Electric Company": 13, State_Ave.name: 14, Virginia_Ave: 15, "Pennsylvania Railroad": 16, St_James_Place: 17, "Community 2": 18, Tennessee.name: 19, New_York_Ave.name: 20,
+                  "Free Parking": 21, Kentucky_Ave.name: 22, "Chance 2": 23, Indiana_Ave.name: 24, Illinois_Ave.name: 25, "BO Railroad": 26, Atlantic_Ave.name: 27, Ventnor_Ave.name: 28, "Water Works": 29, Marvin_Gardens.name: 30,
+                  "Jail": 31, Pacific_Ave.name: 32, North_Carolina_Ave.name: 33, "Community Chest 3": 34, Pennsylvania.name: 35, "Short Line": 36, "Chance 3": 37, Park_Place.name: 38, "Luxury Tax": 39, Boardwalk: 40,
                   "Collect": 41}
 
 Chance = {1: "Advance To Go", 2: "Advance To Illinois Ave \nIf you pass Go, collect $200", 3: "Advance To St. Charles Place \nIf you pass Go, collect $200", 4: "Advance To Nearest Utility \nIf Unowned, you can buy it from the BANK \nIf Owned you must Roll The Dice and pay the Owner 10 times the amount rolled",
