@@ -1,11 +1,13 @@
 from classSquare import *
-from random import *
+from random import randint
+from time import sleep
+
 rn = randint(2, 12)
 
-Monopoly_Board = {"Go": 1, Mediterranean_Ave.name: 2, "Community Chest 1": 3, Baltic_Ave.name: 4, "Income Tax": 5, "Reading Railroad": 6, Oriental_Ave.name: 7, "Chance 1": 8, Vermont_Ave.name: 9, Connecticut_Ave.name: 10,
-                  "Just Visiting": 11, St_Charles_Place.name: 12, "Electric Company": 13, State_Ave.name: 14, Virginia_Ave: 15, "Pennsylvania Railroad": 16, St_James_Place: 17, "Community 2": 18, Tennessee.name: 19, New_York_Ave.name: 20,
-                  "Free Parking": 21, Kentucky_Ave.name: 22, "Chance 2": 23, Indiana_Ave.name: 24, Illinois_Ave.name: 25, "BO Railroad": 26, Atlantic_Ave.name: 27, Ventnor_Ave.name: 28, "Water Works": 29, Marvin_Gardens.name: 30,
-                  "Jail": 31, Pacific_Ave.name: 32, North_Carolina_Ave.name: 33, "Community Chest 3": 34, Pennsylvania.name: 35, "Short Line": 36, "Chance 3": 37, Park_Place.name: 38, "Luxury Tax": 39, Boardwalk: 40,
+Monopoly_Board = {"Go": 1, Mediterranean_Ave.name: 2, "Community Chest 1": 3, Baltic_Ave.name: 4, "Income Tax": 5, Reading_Railroad.name: 6, Oriental_Ave.name: 7, "Chance 1": 8, Vermont_Ave.name: 9, Connecticut_Ave.name: 10,
+                  "Just Visiting": 11, St_Charles_Place.name: 12, Electric_Company.name: 13, State_Ave.name: 14, Virginia_Ave.name: 15, Pennsylvania_Railroad.name: 16, St_James_Place.name: 17, "Community 2": 18, Tennessee.name: 19, New_York_Ave.name: 20,
+                  "Free Parking": 21, Kentucky_Ave.name: 22, "Chance 2": 23, Indiana_Ave.name: 24, Illinois_Ave.name: 25, B_O_Railroad.name: 26, Atlantic_Ave.name: 27, Ventnor_Ave.name: 28, Water_Works.name: 29, Marvin_Gardens.name: 30,
+                  "Jail": 31, Pacific_Ave.name: 32, North_Carolina_Ave.name: 33, "Community Chest 3": 34, Pennsylvania.name: 35, Short_Line_Railroad.name: 36, "Chance 3": 37, Park_Place.name: 38, "Luxury Tax": 39, Boardwalk.name: 40,
                   "Collect": 41}
 
 Chance = {1: "Advance To Go", 2: "Advance To Illinois Ave \nIf you pass Go, collect $200", 3: "Advance To St. Charles Place \nIf you pass Go, collect $200", 4: "Advance To Nearest Utility \nIf Unowned, you can buy it from the BANK \nIf Owned you must Roll The Dice and pay the Owner 10 times the amount rolled",
@@ -23,16 +25,16 @@ Community_Chest = {1: "Advance To Go", 2: "BANK Error In Your Favor \nCollect $2
 # The value at 0 is the position
 # The value at 1 is the name of the character piece for the user
 # There will be other values at the other positions in the list to hold Money and get out of Jail Cards#
-battleship = [1, "Battleship"]
-boot = [1, "Boot"]
-cannon = [1, "Cannon"]
-horse_rider = [1, "Horse Rider"]
-iron = [1, "Iron"]
-racecar = [1, "Racecar"]
-dog = [1, "Dog"]
-thimble = [1, "Thimble"]
-top_hat = [1, "Top Hat"]
-wheel_barrow = [1, "Wheel Barrow"]
+battleship = [1, "Battle Ship", 1500]
+boot = [1, "Boot", 1500]
+cannon = [1, "Cannon", 1500]
+horse_rider = [1, "Horse Rider", 1500]
+iron = [1, "Iron", 1500]
+racecar = [1, "Racecar", 1500]
+dog = [1, "Dog", 1500]
+thimble = [1, "Thimble", 1500]
+top_hat = [1, "Top Hat", 1500]
+wheel_barrow = [1, "Wheel Barrow", 1500]
 
 characters = []
 choose = [battleship[1], boot[1], cannon[1], horse_rider[1], iron[1], racecar[1], dog[1], thimble[1], top_hat[1], wheel_barrow[1]]
@@ -42,39 +44,43 @@ def character_choosing():
     print("How many people will be playing")
     playing = int(input(">>>"))
     a = 1
+    option1 = 1
     while a <= playing:
         print("\nChoose your character player", a)
 
         print("You can choose:", choose)
-        option = input(">>>").title()
-        if option == "Battleship" or option == "Battle" or option == "Ship" or option == "Bs":
+
+        # option = input(">>>").title()
+        option = str(option1)
+
+        if option == "Battleship" or option == "Battle" or option == "Ship" or option == "Bs" or option == str(1):
             characters.append(battleship)
             choose.remove(battleship[1])
-        elif option == "Boot" or option == "B":
+        elif option == "Boot" or option == "B" or option == str(2):
             characters.append(boot)
             choose.remove(boot[1])
-        elif option == "Cannon" or option == "C":
+        elif option == "Cannon" or option == "C" or option == str(3):
             characters.append(cannon)
             choose.remove(cannon[1])
-        elif option == "Horse" or option == "Rider" or option == "H" or option == "R":
+        elif option == "Horse" or option == "Rider" or option == "H" or option == "R" or option == str(4):
             characters.append(horse_rider)
             choose.remove(horse_rider[1])
-        elif option == "Iron" or option == "I":
+        elif option == "Iron" or option == "I" or option == str(5):
             characters.append(iron)
             choose.remove(iron[1])
-        elif option == "Racecar" or option == "Car" or option == "Rc":
+        elif option == "Racecar" or option == "Car" or option == "Rc" or option == str(6):
             characters.append(racecar)
             choose.remove(racecar[1])
-        elif option == "Dog" or option == "D":
+        elif option == "Dog" or option == "D" or option == str(7):
             characters.append(dog)
             choose.remove(dog[1])
-        elif option == "Thimble" or option == "T":
+        elif option == "Thimble" or option == "T" or option == str(8):
             characters.append(thimble)
             choose.remove(thimble[1])
-        elif option == "Top Hat" or option == "Th":
+        elif option == "Top Hat" or option == "Th" or option == str(9):
             characters.append(top_hat)
             choose.remove(top_hat[1])
-        elif option == "Wheel Barrow" or option == "Wheel" or option == "Barrow" or option == "W" or option == "Wb":
+        elif option == "Wheel Barrow" or option == "Wheel" or option == "Barrow" or option == "W" or option == "Wb" or option == str(10):
             characters.append(wheel_barrow)
             choose.remove(wheel_barrow[1])
 
@@ -84,6 +90,7 @@ def character_choosing():
             print("Let's continue")
 
         a += 1
+        option1 += 1
     return playing
 
 
