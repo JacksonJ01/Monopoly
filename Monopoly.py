@@ -1,7 +1,7 @@
 # Jackson J.
 # 11/24/19
 # My mom told me to make monopoly, so i will try
-"""I have to try to make a turn based algorithm and characters have the turns rotate"""
+"""I have to try to make a turn based algorithm with characters that have turns and property and so mush other shiz"""
 from MonopolyMethod import *
 from time import sleep
 input("CLICK HERE THEN PRESS ENTER")
@@ -141,4 +141,5 @@ except IndexError:
             characters.insert(0, char3)
             print('\nHey, looks like', char3[1], 'is the victor')
             break
+
 print(characters)

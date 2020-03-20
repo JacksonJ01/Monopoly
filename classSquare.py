@@ -1,3 +1,4 @@
+# Creating a class to give the properties in monopoly some characteristics
 class Square:
     def __init__(self, name, color, cost, rent):
         self.name = name
@@ -15,6 +16,7 @@ class Square:
         return 'The rent for ' + self.name + " is " + str(self.rent)
 
 
+# Regular Property
 Mediterranean_Ave = Square("Mediterranean Ave", "Brown", 60, 2)
 Baltic_Ave = Square("Baltic Ave", "Brown", 60, 4)
 Oriental_Ave = Square("Oriental Ave", "Light Blue", 100, 6)
@@ -38,6 +40,7 @@ Pennsylvania = Square("Pennsylvania Ave", "Green", 320, 28)
 Park_Place = Square("Park Place", "Green", 350, 35)
 Boardwalk = Square("Boardwalk", "Green", 400, 50)
 
+# Special Property
 Electric_Company = Square('Electric Company', 'Utilities', 150, 10)
 Water_Works = Square('Water Works', 'Utilities', 150, 10)
 Reading_Railroad = Square('Reading Railroad', 'Railroad', 200, 25)

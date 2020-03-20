@@ -1,20 +1,24 @@
 from classSquare import *
 from random import randint
-from time import sleep
-
 rn = randint(2, 12)
 
+# This contains all of the 'Squares' or spaces on the board.
+# The players will have to move across the board
+# The reason I chose a dictionary is because I wanted to linked each Square to name and position
+# Each name is of the Square class type, and that holds the name, determines cost, rent etc.
+# 3.20.20 Now i could have don this with lists, but this I didn't know you could do list inception; if this method gets too tedious i may switch over
 Monopoly_Board = {"Go": 1, Mediterranean_Ave.name: 2, "Community Chest 1": 3, Baltic_Ave.name: 4, "Income Tax": 5, Reading_Railroad.name: 6, Oriental_Ave.name: 7, "Chance 1": 8, Vermont_Ave.name: 9, Connecticut_Ave.name: 10,
                   "Just Visiting": 11, St_Charles_Place.name: 12, Electric_Company.name: 13, State_Ave.name: 14, Virginia_Ave.name: 15, Pennsylvania_Railroad.name: 16, St_James_Place.name: 17, "Community 2": 18, Tennessee.name: 19, New_York_Ave.name: 20,
                   "Free Parking": 21, Kentucky_Ave.name: 22, "Chance 2": 23, Indiana_Ave.name: 24, Illinois_Ave.name: 25, B_O_Railroad.name: 26, Atlantic_Ave.name: 27, Ventnor_Ave.name: 28, Water_Works.name: 29, Marvin_Gardens.name: 30,
                   "Jail": 31, Pacific_Ave.name: 32, North_Carolina_Ave.name: 33, "Community Chest 3": 34, Pennsylvania.name: 35, Short_Line_Railroad.name: 36, "Chance 3": 37, Park_Place.name: 38, "Luxury Tax": 39, Boardwalk.name: 40,
                   "Collect": 41}
 
+# For the Chance and Community Chest I chose to stick with the dictionaries
+# i wanted the information on the card to be linked with a number so i could randomize them once landed on
 Chance = {1: "Advance To Go", 2: "Advance To Illinois Ave \nIf you pass Go, collect $200", 3: "Advance To St. Charles Place \nIf you pass Go, collect $200", 4: "Advance To Nearest Utility \nIf Unowned, you can buy it from the BANK \nIf Owned you must Roll The Dice and pay the Owner 10 times the amount rolled",
           5: "Advance To The Nearest Railroad \nIf Unowned, you may buy from the BANK \nIf Owned you must pay the Owner twice the rent stated", 6: "BANK Pays You $50", 7: "Get Out Of Jail Card", 8: "Go Back 3 Spaces",
           9: "Go To Jail", 10: "Make General Repairs On Your Property \n$25 for each house\n$100 for each hotel", 11: "Pay Poor Tax Of $15", 12: "Take A Trip To Reading Railroad \nIf you pass Go, collect $200",
           13: "Move To Boardwalk", 14: "You Have Been Elected Chairmen Of The Board \nPay each player $50", 15: "Your Building And Loans Mature \nCollect $150", 16: "You Won A Crossword Competition \nCollect $100"}
-
 Community_Chest = {1: "Advance To Go", 2: "BANK Error In Your Favor \nCollect $200", 3: "Doctor's Fee \nPay $50",
                    4: "Your Stock Has Been Sold \nYou Get $50", 5: "Get Out Of Jail Free", 6: "Go To Jail",
                    7: "Grand Opera Night \nCollect $50 from each player", 8: "Holiday Fund Matures \nReceive $100", 9: "Income Tax Refund \n Collect $20",
@@ -24,7 +28,7 @@ Community_Chest = {1: "Advance To Go", 2: "BANK Error In Your Favor \nCollect $2
 
 # The value at 0 is the position
 # The value at 1 is the name of the character piece for the user
-# There will be other values at the other positions in the list to hold Money and get out of Jail Cards#
+# There will be other values at the other positions in the list to hold Money and get out of Jail Cards # This will be so much work
 battleship = [1, "Battle Ship", 1500]
 boot = [1, "Boot", 1500]
 cannon = [1, "Cannon", 1500]
@@ -40,9 +44,21 @@ characters = []
 choose = [battleship[1], boot[1], cannon[1], horse_rider[1], iron[1], racecar[1], dog[1], thimble[1], top_hat[1], wheel_barrow[1]]
 
 
+# Right now this game is in testing so it automatically adds 10 players to make sure randomness is high
+# this also helps me debug
+
+# This function exists to ask how many people are playing and let those players choose characters
 def character_choosing():
-    print("How many people will be playing")
-    playing = int(input(">>>"))
+    print("How many people will be playing?"
+          "\n>>>")
+    playing = input(">>>")
+    while playing != int:
+        try:
+            playing = int(playing)
+            break
+        except ValueError:
+            playing = input('Can you enter a number?'
+                            '\n>>>')
     a = 1
     option1 = 1
     while a <= playing:
@@ -94,6 +110,9 @@ def character_choosing():
     return playing
 
 
+# This function is pretty straightforward
+# It includes most of the rules in monopoly
+# The reason i say most is because there are aspects of the game i don't want to add
 def rules():
     print("\n\nThe rules goes as follows:"
           "\nEach player will roll the 2 die in an attempt to get the highest value"
